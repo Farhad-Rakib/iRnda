@@ -1,0 +1,108 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap Template with Logo Background</title>
+    <!-- Link to Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        .bg-logo {
+            background-image: url("{% static 'images/rnda_bg_2.jpg' %}"); 
+            background-size: cover;
+            background-position: center;
+            height: 100vh; /* Full viewport height */
+            position: relative;
+        }
+
+        .bg-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay for opacity */
+            z-index: 1;
+        }
+
+        .content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%); /* Centers the content */
+            color: white;
+            text-align: center;
+            z-index: 2;
+        }
+
+        .btn-custom {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            border: none;
+        }
+
+        .btn-custom:hover {
+            background-color: #00AEEF;
+        }
+
+        footer {
+            background-color: #00AEEF; /* Blue background */
+            color: white;
+            padding: 20px;
+        }
+
+        .navbar {
+            z-index: 10;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top px-4" style=" background-color: #00AEEF; ">
+        <a class="navbar-brand" href="#"> 
+            <img src="{% static 'images/RNDA_logo.png' %}" alt="Logo" style="height: 40px;">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active mx-2">
+                    <a class="nav-link" href="#">Home</a>
+                </li>
+                <li class="nav-item mx-2">
+                    <a class="nav-link" href="#">Assessment</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Section with Background Image -->
+    <div class="bg-logo">
+        <div class="bg-overlay"></div> <!-- Semi-transparent overlay for opacity effect -->
+        
+        <div class="content">
+            {% block content %}
+            <!-- Child templates will inject their content here -->
+            {% endblock %}
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer class="text-center">
+        <p>&copy; 2025 iRnda. All rights reserved.</p>
+    </footer>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="container">
+        <h2 class="text-white text-center">RnDA Assessment Results</h2>
+        
+        <!-- Fine Motor Result Section -->
+        <div class="domain-section mt-4">
+            <h3 class="text-white">Fine Motor Assessment Result</h3>
+            <div class="domain-result" 
+                 style="background-color: {% if fine_motor_result == 'Normal' %}lightgreen; 
+                        {% elif fine_motor_result == 'Moderate' %}lightcoral; 
+                        {% else %}darkred; {% endif %};">
+               
+                
+            </div>
+            <div class="alert {% if fine_motor_result == 'Normal' %}alert-success{% elif fine_motor_result == 'Moderate' %}alert-warning{% else %}alert-danger{% endif %}" role="alert">
+                Your Fine Motor RnDA score is <strong>{{ fine_motor_result }}</strong>.
+            </div>
+        </div>
+
+        <!-- Gross Motor Result Section -->
+        <div class="domain-section mt-4">
+            <h3 class="text-white">Gross Motor Assessment Result</h3>
+            <div class="domain-result" 
+                 style="background-color: {% if gross_motor_result == 'Normal' %}lightgreen; 
+                        {% elif gross_motor_result == 'Moderate' %}lightcoral; 
+                        {% else %}darkred; {% endif %};">
+               
+                
+            </div>
+            <div class="alert {% if gross_motor_result == 'Normal' %}alert-success{% elif gross_motor_result == 'Moderate' %}alert-warning{% else %}alert-danger{% endif %}" role="alert">
+                Your Gross Motor RnDA score is <strong>{{ gross_motor_result }}</strong>.
+            </div>
+        </div>
+
+        <!-- Vision Result Section -->
+        <div class="domain-section mt-4">
+            <h3 class="text-white">Vision Assessment Result</h3>
+            <div class="domain-result" 
+                 style="background-color: {% if vision_result == 'Normal' %}lightgreen; 
+                        {% elif vision_result == 'Moderate' %}lightcoral; 
+                        {% else %}darkred; {% endif %};">
+               
+                
+            </div>
+            <div class="alert {% if vision_result == 'Normal' %}alert-success{% elif vision_result == 'Moderate' %}alert-warning{% else %}alert-danger{% endif %}" role="alert">
+                Your Vision RnDA score is <strong>{{ vision_result }}</strong>.
+            </div>
+        </div>
+    </div>
+{% endblock %}
